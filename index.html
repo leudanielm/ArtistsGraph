@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Artists Graph</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+ </head>
+ <body>
+  <header>
+  	<h1 id="artist-name">Artists Graph</h1>
+  	<div class="loader">
+  	  <svg viewBox="0 0 64 64"><g fill="none" fill-rule="evenodd" stroke-width="3"><circle cx="32" cy="32" r="16.0589"><animate attributeName="r" begin="0s" dur="2s" values="0;24" keyTimes="0;1" keySplines="0.1,0.2,0.3,1" calcMode="spline" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="2s" values=".2;1;.2;0" repeatCount="indefinite"></animate></circle><circle cx="32" cy="32" r="23.6596"><animate attributeName="r" begin="-1s" dur="2s" values="0;24" keyTimes="0;1" keySplines="0.1,0.2,0.3,1" calcMode="spline" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="-1s" dur="2s" values=".2;1;.2;0" repeatCount="indefinite"></animate></circle></g></svg>
+  	</div>
+  </header>
+  <form>
+    <input autocomplete="off" placeholder="Type an artist name and press enter" type="text" id="artist-value">
+    <button id="graph">Graph</button>
+  </form>
+  <div class="powered">
+   Made with <img src="http://cdn.last.fm/flatness/badges/lastfm_red.gif"> and <img src="http://jsplumbtoolkit.com/logo-bw.png">
+  </div>
+  <div class="bkg pixelated"></div>
+ </body>
+ <script src="jsPlumb.js"></script>
+ <script src="music-graph.js"></script>
+</html>

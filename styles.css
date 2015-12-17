@@ -1,0 +1,188 @@
+body { margin: 0; font-family: 'Helvetica', sans-serif; }
+.pixelated {
+  image-rendering:optimizeSpeed;             /* Legal fallback */
+  image-rendering:-moz-crisp-edges;          /* Firefox        */
+  image-rendering:-o-crisp-edges;            /* Opera          */
+  image-rendering:-webkit-optimize-contrast; /* Safari         */
+  image-rendering:optimize-contrast;         /* CSS3 Proposed  */
+  image-rendering:crisp-edges;               /* CSS4 Proposed  */
+  image-rendering:pixelated;                 /* CSS4 Proposed  */
+  -ms-interpolation-mode:nearest-neighbor;   /* IE8+           */
+}
+@-webkit-keyframes add {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  },
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes add {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  },
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes opac {
+  0% {
+    opacity: 0;
+  },
+  100% {
+    opacity: 1;
+  }     
+}
+@keyframes opac {
+  0% {
+    opacity: 0;
+  },
+  100% {
+    opacity: 1;
+  }     
+}
+.bkg {
+  z-index: -5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  opacity: .1;
+  transition: background-image ease-out .6s;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+._jsPlumb_connector {
+  opacity: .3;
+  z-index: -1;
+  -webkit-animation: add ease-in .4s;
+          animation: add ease-in .4s;
+  -webkit-transition: all ease-in .4s;
+          transition: all ease-in .4s;
+}
+.conn-hover {
+  -webkit-filter: none;
+  filter: none;
+  opacity: .5;
+}
+.circle { 
+  position: absolute;
+  border-radius: 100% 100%;
+  background-size: cover;
+  background-color: #eee;
+  -webkit-animation: add cubic-bezier(0.175, 0.885, 0.395, 1.500) .4s;
+          animation: add cubic-bezier(0.175, 0.885, 0.395, 1.500) .4s;
+  -webkit-transition: -webkit-transform cubic-bezier(0.175, 0.885, 0.395, 1.500) .4s,
+          opacity ease-in .4s;
+          transition: transform cubic-bezier(0.175, 0.885, 0.395, 1.500) .4s,
+          opacity ease-in .4s;
+  margin: 20px;
+  opacity: .35;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+.circle > span {
+  position: absolute;
+  top: 10%;
+  left: 100%;
+  font-family: 'Helvetica', sans-serif;
+  visibility: hidden;
+  font-size: .2em;
+  background-color: #fff;
+  display: inline-block;
+  padding: 3%;
+}
+.circle span.similar {
+  font-size: 7px;
+}
+.circle-hover {
+  opacity: 1;
+  -webkit-filter: none;
+  filter: none;
+  z-index: 1000;
+}
+.circle:hover {
+  z-index: 1000;
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
+}
+.circle:hover span {
+  visibility: visible;
+}
+._jsPlumb_drag_select * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;    
+}
+input {
+  font-size: 1.3em;
+  padding: 5% 8%;
+  width: 100%;
+  -webkit-animation: opac ease-out 1s;
+          animation: opac ease-out 1s;
+}
+#graph {
+  visibility: hidden;
+}
+form {
+  width: 50%;
+  margin: 20% auto;
+  -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+}
+header {
+  position: fixed;
+  width: 100%;
+  height: 30px;
+  padding: 1% 3%;
+  top: 0;
+  left: 0;
+  background: #000;
+}
+h1 {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+}
+header h1 {
+  margin-left: -2%;
+  float: left;
+  -webkit-transition: all ease-out .2s;
+          transition: all ease-out .2s;
+}
+header h1.active {
+  margin-left: 1%;
+}
+.loader {
+  stroke: #ef473a;
+  fill: #ef473a;
+  position: absolute;
+  left: 0;
+  top: -20%;
+  display: none;
+}
+.loader svg {
+  width: 19% !important;
+  height: 85px !important;
+}
+.powered {
+ position: fixed;
+ bottom: 10px;
+ right: 10px;
+ font-size: .8em;
+}
+.powered img {
+  height: 20px;
+  vertical-align: middle;
+}
