@@ -44,7 +44,7 @@
     url += ~url.indexOf('?') ? '&callback=__cb' : '?callback=__cb';
     window.__cb = function(data) {
       window[dN] = data;
-    }
+    };
     return new Promise(
       function(resolve, reject) {
 
@@ -56,7 +56,7 @@
           delete window.__cb;
           document.head.removeChild(s);
         });
-      }
+      };
       document.head.appendChild(s);
       }
     );
@@ -97,8 +97,7 @@
     this.config = config;
 
     this._getNetworkById = function(id) {
-      var returnArray = [],
-          networkedDOMElements = [],
+      var networkedDOMElements = [],
           networkedConnections = [];
 
       networkedDOMElements = 
@@ -208,7 +207,7 @@
         lastClicked = this;
       });
     };
-  };
+  }
 
   ArtistCircle.prototype.getNetworkById = function() {
     return this._getNetworkById.apply(this, [].slice.call(arguments));
@@ -288,15 +287,15 @@
           }
         });
         circle.draw();
+
+        setTimeout(function() {
+          circle.getNetworkById(id)
+              .forEach(function(div) {
+                !(div instanceof SVGElement) && div.classList.add('circle-hover');
+              })
+        }, 500);
       }
     }
-
-    setTimeout(function() {
-      circle.getNetworkById(id)
-       .forEach(function(div) {
-         !(div instanceof SVGElement) && div.classList.add('circle-hover');
-       })
-    }, 500);
   }
 
   function displayCircle(artist, y, x, id) {
